@@ -1,7 +1,5 @@
 package com.voxbiblia.jresolver;
 
-import com.voxbiblia.rjmailer.RJMException;
-
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -79,7 +77,7 @@ public class Resolver
         buffer.skip(2);
         int flagByte = buffer.read();
         if ((flagByte & 0x80) == 0) {
-            throw new RJMException("got response that claimed to be a query: " + flagByte);
+            throw new ServFailException("got response that claimed to be a query: " + flagByte);
         }
         int rcode = buffer.read();
         switch (rcode & 0x0f) {

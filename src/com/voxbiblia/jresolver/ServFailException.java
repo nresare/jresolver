@@ -9,4 +9,17 @@ package com.voxbiblia.jresolver;
  */
 public class ServFailException extends RuntimeException
 {
+    public ServFailException()
+    {
+        super();
+    }
+    public ServFailException(String msg)
+    {
+        super(msg);
+    }
+
+    public ServFailException(Throwable root)
+    {
+        super(root);
+    }
 }

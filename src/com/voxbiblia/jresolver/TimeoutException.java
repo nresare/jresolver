@@ -8,4 +8,13 @@ package com.voxbiblia.jresolver;
  */
 public class TimeoutException extends RuntimeException
 {
+    public TimeoutException()
+    {
+        super();
+    }
+
+    public TimeoutException(String msg)
+    {
+        super(msg);
+    }
 }

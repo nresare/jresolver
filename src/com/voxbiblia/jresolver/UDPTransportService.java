@@ -1,6 +1,5 @@
 package com.voxbiblia.jresolver;
 
-import com.voxbiblia.rjmailer.RJMException;
 
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -27,7 +26,7 @@ class UDPTransportService implements TransportService
             socket = new DatagramSocket();
             socket.connect(InetAddress.getByName(serverName), PORT);
         } catch (Exception e) {
-            throw new RJMException(e);
+            throw new Error(e);
         }
     }
 

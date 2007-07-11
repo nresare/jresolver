@@ -1,7 +1,5 @@
 package com.voxbiblia.jresolver;
 
-import com.voxbiblia.rjmailer.RJMParseException;
-import com.voxbiblia.rjmailer.RJMException;
 
 import java.util.Random;
 import java.io.ByteArrayOutputStream;
@@ -47,7 +45,7 @@ public class MXQuery {
             // CLASS IN
             writeBEUInt16(1, baos);
         } catch (IOException e) {
-            throw new RJMException(e);
+            throw new Error(e);
         }
         return baos.toByteArray();
     }
@@ -81,11 +79,11 @@ public class MXQuery {
         for (int i = 0; i < name.length(); i++) {
             char c = nameChars[i];
             if (c > 0x80) {
-                throw new RJMParseException("illegal char in domain name: " + c);
+                throw new ServFailException("illegal char in domain name: " + c);
             }
             if (c == '.') {
                 if (i - start > 63) {
-                    throw new RJMParseException("contains label longer than " +
+                    throw new ServFailException("contains label longer than " +
                             "63 chars: " + name);
                 }
                 os.write(i - start);

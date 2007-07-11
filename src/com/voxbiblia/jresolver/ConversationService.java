@@ -1,8 +1,5 @@
 package com.voxbiblia.jresolver;
 
-import com.voxbiblia.rjmailer.RJMException;
-import com.voxbiblia.rjmailer.RJMTimeoutException;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,7 +52,7 @@ class ConversationService
      *
      * @return a DatagramPacket recieved from the server with matching id field
      *
-     * @throws RJMTimeoutException if the specified timeout has been reached
+     * @throws TimeoutException if the specified timeout has been reached
      * without an answer.
      */
     public byte[] sendRecv(byte[] query)
@@ -80,9 +77,9 @@ class ConversationService
         if (response == null) {
             Throwable t = state.getException();
             if (t != null) {
-                throw new RJMException(t);
+                throw new ServFailException(t);
             }
-            throw new RJMTimeoutException("timeout " +
+            throw new TimeoutException("timeout " +
                     "after " + timeout + " seconds.");
         }
         return response;
