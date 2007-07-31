@@ -26,9 +26,11 @@
                 <exclude name="classes/**"/>
                 <exclude name="dist/**"/>
                 <exclude name="src/**"/>
+                <exclude name="test/**"/>
             </zipfileset>
             <zipfileset dir="dist" prefix="${ant.project.name}-${version}">
-                <include name="*-src.zip"/>
+                <include name="*-src.tar.bz2"/>
+                <include name="*-test.tar.bz2"/>
                 <include name="*.jar"/>
             </zipfileset>
         </zip>
