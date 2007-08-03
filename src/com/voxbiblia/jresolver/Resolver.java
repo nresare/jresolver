@@ -26,7 +26,7 @@ import java.util.Collections;
 public class Resolver
 {
     //static Logger log = Logger.getLogger(Resolver.class.getName());
-    private ConversationService converstaionService;
+    private ConversationService conversationService;
     int timeout;
 
 
@@ -37,7 +37,7 @@ public class Resolver
      */
     Resolver(TransportService transportService)
     {
-        converstaionService = new ConversationService(transportService);
+        conversationService = new ConversationService(transportService);
     }
 
     /**
@@ -48,7 +48,7 @@ public class Resolver
      */
     public Resolver(String server)
     {
-        converstaionService = new ConversationService(new UDPTransportService(server));
+        conversationService = new ConversationService(new UDPTransportService(server));
     }
 
     /**
@@ -60,7 +60,7 @@ public class Resolver
      */
     public List resolve(MXQuery query)
     {
-        byte[] response = converstaionService.sendRecv(query.toWire());
+        byte[] response = conversationService.sendRecv(query.toWire());
         /*
         //Sometimes it's convinient to dump responses to file to construct tests.
         try {
@@ -166,7 +166,7 @@ public class Resolver
      */
     public void setTimeout(int timeout)
     {
-        converstaionService.setTimeout(timeout);
+        conversationService.setTimeout(timeout);
     }
 
 }
