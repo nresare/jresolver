@@ -65,6 +65,10 @@ public class MXQuery {
         return baos.toByteArray();
     }
 
+    public String getName()
+    {
+        return name;
+    }
 
     static void writeBEUInt16(int i, OutputStream os)
             throws IOException

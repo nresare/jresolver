@@ -25,4 +25,13 @@ package com.voxbiblia.jresolver;
  */
 public class NXDomainException extends RuntimeException
 {
+    public NXDomainException()
+    {
+        super();
+    }
+
+    public NXDomainException(String domain)
+    {
+        super(domain);
+    }
 }

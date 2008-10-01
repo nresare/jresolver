@@ -60,7 +60,13 @@ public class Resolver
      */
     public List resolve(MXQuery query)
     {
-        byte[] response = conversationService.sendRecv(query.toWire());
+        try {
+            return parseResponse(conversationService.sendRecv(query.toWire()));
+        } catch (ServFailException e) {
+            throw new ServFailException(query.getName(), e.getCause());
+        } catch (NXDomainException e) {
+            throw new NXDomainException(query.getName());
+        }
         /*
         //Sometimes it's convinient to dump responses to file to construct tests.
         try {
@@ -71,7 +77,7 @@ public class Resolver
             throw new Error(e);
         }
         */
-        return parseResponse(response);
+
     }
 
     /**

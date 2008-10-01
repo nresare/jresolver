@@ -28,13 +28,19 @@ public class ServFailException extends RuntimeException
     {
         super();
     }
-    public ServFailException(String msg)
-    {
-        super(msg);
-    }
 
     public ServFailException(Throwable root)
     {
         super(root);
+    }
+
+    public ServFailException(String msg, Throwable root)
+    {
+        super(msg,root);
+    }
+
+    public ServFailException(String msg)
+    {
+        super(msg);
     }
 }
