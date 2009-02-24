@@ -34,12 +34,13 @@ class UDPTransportService implements TransportService
     private DatagramSocket socket;
     private static final int PORT = 53;
     private static final Logger log = Logger.getLogger(UDPTransportService.class.getName());
+    private InetAddress server;
 
     public UDPTransportService(String serverName)
     {
         try {
+            server = InetAddress.getByName(serverName);
             socket = new DatagramSocket();
-            socket.connect(InetAddress.getByName(serverName), PORT);
         } catch (Exception e) {
             throw new Error(e);
         }
@@ -47,7 +48,7 @@ class UDPTransportService implements TransportService
 
     public void send(byte[] data)
     {
-        DatagramPacket dp = new DatagramPacket(data, data.length);
+        DatagramPacket dp = new DatagramPacket(data, data.length, server, PORT);
         if (log.isLoggable(Level.FINE)) {
             log.fine("sending packet with id " + Buffer.parseInt16(data));
         }
