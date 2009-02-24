@@ -11,7 +11,7 @@ Features
 - Lightweight. The binary jar is less than 17k at the moment, and has no
 exernal dependencies besides JDK 1.4.
 
-- Multi Threaded. It handles multiple concurrent threads sharing a single
+- Multithreaded. It handles multiple concurrent threads sharing a single
 Resolver instance.
 
 - Easy to use and develop. The software does one thing, and the code is quite
