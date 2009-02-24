@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="jresolver" default="dist">
-    <property name="version" value="0.1"/>
+    <property name="version" value="0.2"/>
 
     <target name="compile" >
         <mkdir dir="classes/production"/>
@@ -27,6 +27,7 @@
                 <exclude name="dist/**"/>
                 <exclude name="src/**"/>
                 <exclude name="test/**"/>
+                <exclude name=".git/**"/>
             </zipfileset>
             <zipfileset dir="dist" prefix="${ant.project.name}-${version}">
                 <include name="*-src.tar.bz2"/>

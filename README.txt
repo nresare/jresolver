@@ -8,7 +8,7 @@ queries as needed.
 
 Features
 
-- Lightweight. The binary jar is less than 17k at the moment, and has no
+- Lightweight. The binary jar is less than 18k at the moment, and has no
 exernal dependencies besides JDK 1.4.
 
 - Multithreaded. It handles multiple concurrent threads sharing a single
