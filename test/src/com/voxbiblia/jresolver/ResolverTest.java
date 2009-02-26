@@ -39,6 +39,19 @@ public class ResolverTest
         assertEquals(10, ((MXRecord)l.get(0)).getPreference());
     }
 
+    public void testRefused()
+    {
+        Resolver r = new Resolver("gunnar.complicata.se");
+        r.setTimeout(10);
+        try {
+            List l = r.resolve(new MXQuery("resare.com"));
+            fail("should have thrown QRE");
+        } catch (QueryRefusedException e) {
+            // ignore
+        }
+
+    }
+
     public void testParseResponse()
             throws Exception
     {

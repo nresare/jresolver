@@ -105,7 +105,9 @@ public class Resolver
             case 2:
                 throw new ServFailException();
             case 3:
-                throw new NXDomainException();                
+                throw new NXDomainException();
+            case 5:
+                throw new QueryRefusedException();
         }
         int questionCount = buffer.readInt16();
         int answerCount = buffer.readInt16();
