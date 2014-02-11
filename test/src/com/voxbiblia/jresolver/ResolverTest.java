@@ -31,20 +31,20 @@ public class ResolverTest
  
     public void testResolve()
     {
-        Resolver r = new Resolver("johanna.resare.com");
-        r.setTimeout(100);
-        List l = r.resolve(new MXQuery("dn.se"));
+        Resolver r = new Resolver("ns.resare.com");
+        r.setTimeout(10);
+        List l = r.resolve(new MXQuery("jresolvertest.resare.com"));
         assertEquals(1, l.size());
-        assertEquals("mail-gw.dn.se", ((MXRecord)l.get(0)).getExchange());
+        assertEquals("mail.resare.com", ((MXRecord)l.get(0)).getExchange());
         assertEquals(10, ((MXRecord)l.get(0)).getPreference());
     }
 
     public void testRefused()
     {
-        Resolver r = new Resolver("gunnar.complicata.se");
+        Resolver r = new Resolver("ns2.spotify.com");
         r.setTimeout(10);
         try {
-            List l = r.resolve(new MXQuery("resare.com"));
+            r.resolve(new MXQuery("resare.com"));
             fail("should have thrown QRE");
         } catch (QueryRefusedException e) {
             // ignore

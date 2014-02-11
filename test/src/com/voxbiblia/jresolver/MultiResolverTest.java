@@ -15,8 +15,6 @@ The GNU General Public License is available from <http://gnu.org/licenses/>.
 */
 package com.voxbiblia.jresolver;
 
-import junit.framework.TestCase;
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -28,10 +26,10 @@ import java.util.NoSuchElementException;
 import java.util.zip.GZIPInputStream;
 
 /**
- * Tests multiple resolutions 
+ * Tests multiple resolutions. Make into a test case by extending TestCase
+ * @noinspection UnusedDeclaration
  */
 public class MultiResolverTest
-        extends TestCase
 {
     int stopCount = 0;
     private static class ResolverThread extends Thread

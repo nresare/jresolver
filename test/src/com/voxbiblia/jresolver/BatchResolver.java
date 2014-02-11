@@ -24,9 +24,9 @@ public class BatchResolver
 {
     public static void main(String[] args)
     {
-        Resolver r = new Resolver("johanna.resare.com");
+        Resolver r = new Resolver("ns.resare.com");
         long before = System.currentTimeMillis();
-        List l = r.resolve(new MXQuery("svd.se"));
+        List l = r.resolve(new MXQuery("resare.com"));
         for (int i = 0; i < l.size(); i++) {
             MXRecord mx = (MXRecord)l.get(i);
             System.out.println("mx: " + mx.getExchange() + " p: "+ mx.getPreference());
