@@ -55,7 +55,7 @@ public class ResolverTest
     public void testParseResponse()
             throws Exception
     {
-        List l = Resolver.parseResponse(readFile("test/data/answer.bin"));
+        List l = Resolver.parseResponse(readFile("src/test/data/answer.bin"));
         assertNotNull(l);
         assertEquals(3, l.size());
 
@@ -74,7 +74,7 @@ public class ResolverTest
             throws Exception
     {
         try {
-            Resolver.parseResponse(readFile("test/data/servfail.bin"));
+            Resolver.parseResponse(readFile("src/test/data/servfail.bin"));
             fail("should have caught ServfailException");
         } catch (ServFailException e) {
 
@@ -85,7 +85,7 @@ public class ResolverTest
             throws Exception
     {
         try {
-            Resolver.parseResponse(readFile("test/data/nxdomain.bin"));
+            Resolver.parseResponse(readFile("src/test/data/nxdomain.bin"));
             fail("should have caught NXDomainException");
         } catch (NXDomainException e) {
 

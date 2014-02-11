@@ -29,10 +29,8 @@ A snippet of code says more than lots of words:
     System.out.println("mx: " + mx.getExchange() + " p: "+ mx.getPreference());
   }
 
-If you want to build and test the software you need to unpack the files named
-jresolver-*-src.tar.bz2 and jresolver-*-test.tar.bz2 and use Apache Ant with
-the build.xml file included. You may need to update the test cases with your
-dns server names.
+The build system used is Apache Maven. If your maven is properly installed, you should
+be able to run 'mvn verify' to run the automated tests.
 
 ## Credits
 

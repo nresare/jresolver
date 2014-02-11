@@ -43,7 +43,7 @@ public class DummyTransportService implements TransportService
 
     public DummyTransportService()
     {
-        File testDataFile = new File("test/data/answer.bin");
+        File testDataFile = new File("src/test/data/answer.bin");
         answer = new byte[(int)testDataFile.length()];
         try {
             FileInputStream fis = new FileInputStream(testDataFile);
