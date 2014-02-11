@@ -13,33 +13,25 @@ FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 The GNU General Public License is available from <http://gnu.org/licenses/>.
 */
-package com.voxbiblia.jresolver;
-
-import junit.framework.TestCase;
-
-import java.util.List;
+package com.resare.jresolver;
 
 /**
- * Tests the resend implementation.
+ * Instances of this class is thrown when name server response
+ * is recieved that has the RCODE 3, Name Error as defined in
+ * RFC1035 4.4.1. This is what is commonly known as the No Such
+ * Domain response, or NXDOMAIN
+ *
+ * @author Noa Resare (noa@resare.com)
  */
-public class ResendTest
-    extends TestCase
+public class NXDomainException extends RuntimeException
 {
-    public void testResend()
+    public NXDomainException()
     {
-        Resolver r = new Resolver(new DummyTransportService());
-        List l = r.resolve(new MXQuery("svd.se"));
-        assertNotNull(l);
+        super();
     }
 
-    public void testWithDrop()
+    public NXDomainException(String domain)
     {
-        DummyTransportService dts = new DummyTransportService();
-        dts.setMode(DummyTransportService.DROP_FIRST);
-
-        Resolver r = new Resolver(dts);
-        List l = r.resolve(new MXQuery("svd.se"));
-        assertNotNull(l);
-        
+        super(domain);
     }
 }

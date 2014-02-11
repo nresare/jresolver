@@ -13,29 +13,29 @@ FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 The GNU General Public License is available from <http://gnu.org/licenses/>.
 */
-package com.voxbiblia.jresolver;
+package com.resare.jresolver;
 
 /**
- * Prints bitfields as binary strings, most significant bit first
+ * An abstraction of some kind of low level transportation mechanism, such
+ * as an UDP socket connected to a specific service.
+ *
+ * @author Noa Resare (noa@resare.com)
  */
-public class BitFieldPrinter
+interface TransportService
 {
-    public static void main(String[] args)
-    {
-        printByte(19);
-        printByte(8);
-        printByte(129);
-    }
+    /**
+     * Sends the specified answer to the transport.
+     *
+     * @param data the data to send.
+     */
+    void send(byte[] data);
 
-    private static void printByte(int b)
-    {
-        byte b0 = (byte)b;
-        System.out.println("01234567");
-        StringBuilder sb = new StringBuilder();
-        for (int i = 7; i >= 0; i--) {
-            sb.append(((b0 >> i) & 1) != 0 ? "1" : "0");
-        }
-        System.out.println(sb.toString());
-        System.out.println("decimal: " + b0);
-    }
+    /**
+     * Blocks until answer is recieved from the transport, then returns
+     * the number of bytes written to the given buffer.
+     *
+     * @param buffer the buffer to write the answer to
+     * @return the number of bytes recieved
+     */
+    int recv(byte[] buffer);
 }

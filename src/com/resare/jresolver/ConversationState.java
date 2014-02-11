@@ -13,12 +13,12 @@ FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 The GNU General Public License is available from <http://gnu.org/licenses/>.
 */
-package com.voxbiblia.jresolver;
+package com.resare.jresolver;
 
 /**
  * Contains information about the state of an UDP query-response-cycle.
  *
- * @author Noa Resare (noa@voxbiblia.com)
+ * @author Noa Resare (noa@resare.com)
  */
 class ConversationState
 {

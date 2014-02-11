@@ -13,24 +13,29 @@ FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 The GNU General Public License is available from <http://gnu.org/licenses/>.
 */
-package com.voxbiblia.jresolver;
-
-import java.util.List;
+package com.resare.jresolver;
 
 /**
- * Resolves the MX records of a couple of domains.
+ * Prints bitfields as binary strings, most significant bit first
  */
-public class BatchResolver
+public class BitFieldPrinter
 {
     public static void main(String[] args)
     {
-        Resolver r = new Resolver("ns.resare.com");
-        long before = System.currentTimeMillis();
-        List l = r.resolve(new MXQuery("resare.com"));
-        for (int i = 0; i < l.size(); i++) {
-            MXRecord mx = (MXRecord)l.get(i);
-            System.out.println("mx: " + mx.getExchange() + " p: "+ mx.getPreference());
+        printByte(19);
+        printByte(8);
+        printByte(129);
+    }
+
+    private static void printByte(int b)
+    {
+        byte b0 = (byte)b;
+        System.out.println("01234567");
+        StringBuilder sb = new StringBuilder();
+        for (int i = 7; i >= 0; i--) {
+            sb.append(((b0 >> i) & 1) != 0 ? "1" : "0");
         }
-        System.out.println("elapsed time: " + (System.currentTimeMillis() - before) / 1000.0);
+        System.out.println(sb.toString());
+        System.out.println("decimal: " + b0);
     }
 }

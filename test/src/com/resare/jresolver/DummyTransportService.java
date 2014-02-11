@@ -13,7 +13,7 @@ FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 The GNU General Public License is available from <http://gnu.org/licenses/>.
 */
-package com.voxbiblia.jresolver;
+package com.resare.jresolver;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,7 +27,7 @@ import java.util.logging.Logger;
  * A transport service that can be used to test the resend implementation
  * in 
  *
- * @author Noa Resare (noa@voxbiblia.com)
+ * @author Noa Resare (noa@resare.com)
  */
 public class DummyTransportService implements TransportService
 {

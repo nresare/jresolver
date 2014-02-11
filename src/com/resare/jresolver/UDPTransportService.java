@@ -13,7 +13,7 @@ FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 The GNU General Public License is available from <http://gnu.org/licenses/>.
 */
-package com.voxbiblia.jresolver;
+package com.resare.jresolver;
 
 
 import java.net.DatagramSocket;
@@ -27,7 +27,7 @@ import java.util.logging.Level;
  * Implements the TransportService as an UDP datagram socket connected to
  * a specified server on port 53.
  * 
- * @author Noa Resare (noa@voxbiblia.com)
+ * @author Noa Resare (noa@resare.com)
  */
 class UDPTransportService implements TransportService
 {

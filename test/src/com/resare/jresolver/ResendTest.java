@@ -13,23 +13,33 @@ FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 The GNU General Public License is available from <http://gnu.org/licenses/>.
 */
-package com.voxbiblia.jresolver;
+package com.resare.jresolver;
+
+import junit.framework.TestCase;
+
+import java.util.List;
 
 /**
- * An exception of this class is thrown the timeout set in the
- * Resolver expires before an answer was recieved. {@see Resolver.setTimeout()}
- *
- * @author Noa Resare (noa@resare.com)
+ * Tests the resend implementation.
  */
-public class TimeoutException extends RuntimeException
+public class ResendTest
+    extends TestCase
 {
-    public TimeoutException()
+    public void testResend()
     {
-        super();
+        Resolver r = new Resolver(new DummyTransportService());
+        List l = r.resolve(new MXQuery("svd.se"));
+        assertNotNull(l);
     }
 
-    public TimeoutException(String msg)
+    public void testWithDrop()
     {
-        super(msg);
+        DummyTransportService dts = new DummyTransportService();
+        dts.setMode(DummyTransportService.DROP_FIRST);
+
+        Resolver r = new Resolver(dts);
+        List l = r.resolve(new MXQuery("svd.se"));
+        assertNotNull(l);
+        
     }
 }

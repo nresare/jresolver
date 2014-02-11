@@ -13,7 +13,7 @@ FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 The GNU General Public License is available from <http://gnu.org/licenses/>.
 */
-package com.voxbiblia.jresolver;
+package com.resare.jresolver;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ import java.io.UnsupportedEncodingException;
  * Something like a ByteArrayInputStream but with methods for
  * reading DNS query responses.
  *
- * @author Noa Resare (noa@voxbiblia.com)
+ * @author Noa Resare (noa@resare.com)
  */
 class Buffer
 {

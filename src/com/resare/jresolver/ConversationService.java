@@ -13,7 +13,7 @@ FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 The GNU General Public License is available from <http://gnu.org/licenses/>.
 */
-package com.voxbiblia.jresolver;
+package com.resare.jresolver;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -25,7 +25,7 @@ import java.util.logging.Logger;
  * pairing requests and responses based on the id value in the first two
  * packet bytes.
  *
- * @author Noa Resare (noa@voxbiblia.com)
+ * @author Noa Resare (noa@resare.com)
  */
 class ConversationService
 {

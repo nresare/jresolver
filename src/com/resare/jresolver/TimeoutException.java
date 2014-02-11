@@ -13,29 +13,23 @@ FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 The GNU General Public License is available from <http://gnu.org/licenses/>.
 */
-package com.voxbiblia.jresolver;
+package com.resare.jresolver;
 
 /**
- * An abstraction of some kind of low level transportation mechanism, such
- * as an UDP socket connected to a specific service.
+ * An exception of this class is thrown the timeout set in the
+ * Resolver expires before an answer was recieved. {@see Resolver.setTimeout()}
  *
- * @author Noa Resare (noa@voxbiblia.com)
+ * @author Noa Resare (noa@resare.com)
  */
-interface TransportService
+public class TimeoutException extends RuntimeException
 {
-    /**
-     * Sends the specified answer to the transport.
-     *
-     * @param data the data to send.
-     */
-    void send(byte[] data);
+    public TimeoutException()
+    {
+        super();
+    }
 
-    /**
-     * Blocks until answer is recieved from the transport, then returns
-     * the number of bytes written to the given buffer.
-     *
-     * @param buffer the buffer to write the answer to
-     * @return the number of bytes recieved
-     */
-    int recv(byte[] buffer);
+    public TimeoutException(String msg)
+    {
+        super(msg);
+    }
 }

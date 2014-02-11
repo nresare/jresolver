@@ -13,14 +13,14 @@ FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 The GNU General Public License is available from <http://gnu.org/licenses/>.
 */
-package com.voxbiblia.jresolver;
+package com.resare.jresolver;
 
 /**
  * This exception is thrown when recieving a response packet from the
  * resolving nameserver with the return code Servef Failure as defined in
  * RFC1035 4.1.1.
  *
- * @author Noa Resare (noa@voxbiblia.com)
+ * @author Noa Resare (noa@resare.com)
  */
 public class ServFailException extends RuntimeException
 {

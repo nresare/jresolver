@@ -13,25 +13,24 @@ FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 The GNU General Public License is available from <http://gnu.org/licenses/>.
 */
-package com.voxbiblia.jresolver;
+package com.resare.jresolver;
+
+import java.util.List;
 
 /**
- * Instances of this class is thrown when name server response
- * is recieved that has the RCODE 3, Name Error as defined in
- * RFC1035 4.4.1. This is what is commonly known as the No Such
- * Domain response, or NXDOMAIN
- *
- * @author Noa Resare (noa@voxbiblia.com)
+ * Resolves the MX records of a couple of domains.
  */
-public class NXDomainException extends RuntimeException
+public class BatchResolver
 {
-    public NXDomainException()
+    public static void main(String[] args)
     {
-        super();
-    }
-
-    public NXDomainException(String domain)
-    {
-        super(domain);
+        Resolver r = new Resolver("ns.resare.com");
+        long before = System.currentTimeMillis();
+        List l = r.resolve(new MXQuery("resare.com"));
+        for (int i = 0; i < l.size(); i++) {
+            MXRecord mx = (MXRecord)l.get(i);
+            System.out.println("mx: " + mx.getExchange() + " p: "+ mx.getPreference());
+        }
+        System.out.println("elapsed time: " + (System.currentTimeMillis() - before) / 1000.0);
     }
 }
