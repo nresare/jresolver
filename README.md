@@ -1,4 +1,4 @@
-jresolver - The java DNS resolver library
+# jresolver - The java DNS resolver library
 
 This is a domain name resolver library written in pure java. It is what RFC1034
 describes as a stub resolver, in other words it uses a single nameserver to
