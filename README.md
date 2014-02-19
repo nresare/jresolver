@@ -21,13 +21,14 @@ need other licensing options, please contact me.
 ## Usage
 
 A snippet of code says more than lots of words: 
-
+```
   Resolver r = new Resolver("ns.voxbiblia.se");
   List l = r.resolve(new MXQuery("voxbiblia.se"));
   for (int i = 0; i < l.size(); i++) {
     MXRecord mx = (MXRecord)l.get(i);
     System.out.println("mx: " + mx.getExchange() + " p: "+ mx.getPreference());
   }
+```
 
 The build system used is Apache Maven. If your maven is properly installed, you should
 be able to run 'mvn verify' to run the automated tests.
